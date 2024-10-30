@@ -5,7 +5,7 @@ We propose UnBound, a scalable fog meta-federations framework that addresses the
 
 
 ## Architecture
-The figure below shows the architecture of mck8s.
+The figure below shows the architecture of UnBound.
 
 <p align="center"><img src="img/unbound.png" width="500"></p>
 
@@ -18,13 +18,14 @@ This project is currently under active development and remains in a pre-stable s
 
 We welcome contributions of any kind—feel free to share feedback, submit issues, and contribute improvements!
 
-## Related Publications
+
+## Related publications
 
 
 
 # clusteradm CLI
 
-clusteradm CLI allows you to interact with open-cluster-management to manage your UnBound platform from the command-line.
+clusteradm CLI allows you to interact with open cluster management to manage your UnBound platform from the command-line.
 
 ## Quick start
 
@@ -46,12 +47,12 @@ clusteradm
 
 This tool should be installed in all clusters.
 
-## Pre-requisites
+### Environment
 To set up this environment, you'll need:
 
-* A Kubernetes Cluster for Management
+* At least one Kubernetes Cluster for Management
 `A dedicated Kubernetes cluster will act as the UnBound management cluster, responsible for overseeing and coordinating other clusters.`
-* Multiple Kubernetes Member Clusters
+* At least one Kubernetes Member Clusters
 `Additional Kubernetes clusters that will be managed by the management cluster and on which the actual workloads will run. These are referred to as member clusters.`
 
 * Administrative Access and kubeconfig Files
@@ -60,7 +61,7 @@ To set up this environment, you'll need:
 ### Initialize a management cluster and join a member cluster
 
 ```bash
-# Initialize the management cluster (hub)
+# Initialize a management cluster (hub)
 kubectl config use-context <management cluster context>
 clusteradm init --wait
 
@@ -73,7 +74,24 @@ kubectl config use-context <management cluster context> #
 clusteradm accept --clusters <list of clusters> # clusteradm accept --clusters cluster1,cluster2,...
 ```
 
-After each above clusteradm command, the clusteradm will print out the next clusteradm command to execute which can be copy/paste.
+After each above clusteradm command, the clusteradm will print out the next clusteradm command to execute, which can be copied/pasted.
+
+
+### Example figures
+Below is some example figures.
+
+Initialize a management cluster.
+<p align="center"><img src="img/example_init.png" width="500"></p>
+
+Request a member cluster to join the management cluster
+<p align="center"><img src="img/example_member.png" width="500"></p>
+
+Accept the member cluster request on the management cluster
+<p align="center"><img src="img/example_accept.png" width="500"></p>
+
+A microservice example. The way to create applications in UnBound is the same as [Open Cluster Management]. For example `clusteradm create work <name> -f <your YAML file> --clusters <cluster name>`
+<p align="center"><img src="img/example_federated_applicaions.png" width="500"></p>
+
 
 ## Commands
 
@@ -122,6 +140,8 @@ it returns the command line to launch on the management cluster the accept the m
 Accept the CSRs on the management cluster to approve the member clusters to join.
 
 `clusteradm accept --clusters <cluster1>, <cluster2>,....`
+
+### 
 
 [Kubernetes]: https://github.com/kubernetes/kubernetes
 [Open Cluster Management]: https://github.com/open-cluster-management-io/ocm
