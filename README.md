@@ -20,7 +20,7 @@ We welcome contributions of any kind—feel free to share feedback, submit issue
 
 
 ## Related publications
-
+\[1\] Chih-Kai Huang, Guillaume Pierre. UnBound: Multi-Tenancy Management in Scalable Fog Meta-Federations. UCC 2024 - 17th IEEE/ACM International Conference on Utility and Cloud Computing, Dec 2024, Sharjah, United Arab Emirates. ([pdf])
 
 
 # clusteradm CLI
@@ -147,3 +147,4 @@ Accept the CSRs on the management cluster to approve the member clusters to join
 [Open Cluster Management]: https://github.com/open-cluster-management-io/ocm
 [Virtual Kubernetes Clusters]: https://github.com/loft-sh/vcluster
 [clusteradm]: https://github.com/open-cluster-management-io/clusteradm
+[pdf]: https://hal.science/hal-04760398v1
